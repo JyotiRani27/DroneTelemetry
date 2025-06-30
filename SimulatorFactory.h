@@ -1,0 +1,11 @@
+// ======================= SimulatorFactory.h =======================
+#pragma once
+#include "DroneSimulator.h"
+#include "RandomWalkStrategy.h"
+
+class SimulatorFactory {
+public:
+    static DroneSimulator* createSimulator(DroneModel* model) {
+        return new DroneSimulator(model, new RandomWalkStrategy());
+    }
+};
