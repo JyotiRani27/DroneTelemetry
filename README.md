@@ -24,6 +24,6 @@ make
 ```
 
 ## Tests
-Basic unit tests for strategy behavior and telemetry updates can be added in `tests/` directory using GoogleTest or simple assertions.
+Basic unit tests for strategy behavior and telemetry updates are added in `tests/` directory using GoogleTest.
 
 ---
