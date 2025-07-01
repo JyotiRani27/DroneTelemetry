@@ -22,14 +22,14 @@ target_link_libraries(${PROJECT_NAME} Qt6::Widgets)
 # GoogleTest
 enable_testing()
 add_subdirectory(googletest)
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+# find_package(GTest REQUIRED)
+# include_directories(${GTEST_INCLUDE_DIRS})
 
 add_executable(unit_tests
     test/test_strategy.cpp
     test/test_model.cpp
     test/test_simulator.cpp
 )
-
-target_link_libraries(unit_tests PRIVATE Qt6::Widgets ${GTEST_LIBRARIES} pthread)
+target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(unit_tests PRIVATE Qt6::Widgets gtest gtest_main)
 add_test(NAME AllTests COMMAND unit_tests)
