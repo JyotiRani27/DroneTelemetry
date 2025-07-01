@@ -1,7 +1,7 @@
 // ======================= SimulatorFactory.h =======================
 #pragma once
 #include "DroneSimulator.h"
-#include "RandomWalkStrategy.h"
+#include "MovementStrategy.h"
 
 class SimulatorFactory {
 public:
