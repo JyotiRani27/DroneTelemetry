@@ -9,11 +9,3 @@ struct DroneTelemetry {
     int battery = 100;
     std::string gpsFix = "3D";
 };
-
-// ======================= Observer.h =======================
-#pragma once
-class Observer {
-public:
-    virtual void update() = 0;
-    virtual ~Observer() = default;
-};
