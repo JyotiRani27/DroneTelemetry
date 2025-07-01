@@ -3,6 +3,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QTimer>
 #include "SimulatorFactory.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
@@ -24,8 +25,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     model.addObserver(this);
     simulator = SimulatorFactory::createSimulator(&model);
-    simulator->start();
 
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::update);
+    timer->start(1000);
+    
+    simulator->start();
     setCentralWidget(central);
 }
 
