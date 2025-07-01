@@ -1,6 +1,6 @@
 // ======================= main.cpp =======================
 #include <QApplication>
-#include "mainWindows.h"
+#include "MainWindow.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
