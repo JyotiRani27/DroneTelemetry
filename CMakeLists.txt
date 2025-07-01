@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(DroneTelemetrySimulator)
 
 set(CMAKE_CXX_STANDARD 17)
-
+set(CMAKE_AUTOMOC ON)
 find_package(Qt6Widgets REQUIRED)
 
 add_executable(${PROJECT_NAME}
@@ -29,6 +29,9 @@ add_executable(unit_tests
     test/test_strategy.cpp
     test/test_model.cpp
     test/test_simulator.cpp
+    DroneModel.cpp
+    DroneSimulator.cpp
+    Logger.cpp
 )
 target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(unit_tests PRIVATE Qt6::Widgets gtest gtest_main)
