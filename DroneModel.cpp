@@ -6,7 +6,14 @@ void DroneModel::addObserver(Observer* o) {
 }
 
 void DroneModel::notify() {
-    for (auto* o : observers) o->update();
+    for (auto* o : observers) 
+        {
+            //o->update();
+            auto* obj = dynamic_cast<QObject*>(o);
+            if (obj) {
+                QMetaObject::invokeMethod(obj, "update", Qt::QueuedConnection);
+            }
+        }
 }
 
 void DroneModel::updateTelemetry(const DroneTelemetry& data) {
